@@ -10,3 +10,4 @@ themes/*
 !themes/.*
 !themes/kis-legacy/
 **/config/security.yaml
+**/config/system.yaml
