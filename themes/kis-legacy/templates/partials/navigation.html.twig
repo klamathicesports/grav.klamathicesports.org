@@ -1,0 +1,55 @@
+{% import 'macros/macros.html.twig' as macros %}
+
+<div class="navbar navbar-fixed-top" role="navigation">
+<div class="container">
+<div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3 navbar-brand-col">
+      <a class="navbar-kis-brand" href="/"><img class="img-responsive" src="{{ url("theme://images/navbar-brand-transparent-ratio.png")|e }}"/></a>
+    </div>
+    <div class="col-xs-8 col-sm-8 col-md-9 col-lg-9">
+      <div class="navbar-top row">
+
+          <!-- <?php $topNavOffset = 0; if( $this->view_report['settings']['available_registration'] != 'yes' ) $topNavOffset++; if( $this->view_report['settings']['available_schedule'] != 'yes' ) $topNavOffset++; ?> -->
+          
+          <!-- <div class="col-xs-offset-<?= 6*$topNavOffset ?> col-sm-offset-<?= 3*$topNavOffset ?> col-md-offset-<?= 3*$topNavOffset ?> col-lg-offset-<?= 4 + (2*$topNavOffset) ?> hidden-xs col-sm-3 col-md-3 col-lg-2 top-nav text-center"><a href="http://facebook.com/klamathice" target="_blank" data-toggle="tooltip" title="This will open a new window or tab."><i class="fa fa-facebook-official fa-1x"></i> Facebook</a></div> -->
+
+          <div class="col-xs-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-4 hidden-xs col-sm-3 col-md-3 col-lg-2 top-nav text-center"><a href="http://facebook.com/klamathice" target="_blank" data-toggle="tooltip" title="This will open a new window or tab."><i class="fa fa-facebook-official fa-1x"></i> Facebook</a></div>
+          
+          <div class="hidden-xs col-sm-3 col-md-3 col-lg-2 top-nav text-center"><a href="https://www.instagram.com/klamathice/" target="_blank" data-toggle="tooltip" title="This will open a new window or tab."><i class="fa fa-instagram fa-1x"></i> Instagram</a></div>
+
+          <!-- <?php if( $this->view_report['settings']['available_registration'] == 'yes' ): ?> -->
+            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 top-nav text-center">
+              <a href="https://user.sportngin.com/users/sign_in?user_return_to=https%3A%2F%2Flogin.sportngin.com%2Fcheck_login%3Fnext_url%3Dhttps%3A%2F%2Fwww.klamathicesports.org%2Fpage%2Fshow%2F5808209-history" onclick="trackOutboundLink('http://bccia.maxgalaxy.net/'); return false;" target="_blank" data-toggle="tooltip" title="This will open a new window or tab."><i class="fa fa-pencil fa-1x"></i> Registration</a>
+            </div>
+          <!-- <?php endif; ?> -->
+
+          <!-- <?php if( $this->view_report['settings']['available_schedule'] == 'yes' ): ?> -->
+            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 top-nav text-center">
+              <!-- old: http://bccia.maxgalaxy.net/Schedule.aspx?ID=1 -->
+                <a href="{{ url("/schedule")|e }}"><i class="fa fa-calendar fa-1x"></i> Schedule</a>
+            </div>
+          <!-- <?php endif; ?> -->
+      </div>
+
+      <div class="row">
+        <div class="navbar-inner">
+            <!-- <?php if( $this->view_report['settings']['closed_web'] != 'yes' ) { ?> -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <!-- <?php } ?> -->
+        </div>
+        
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-main">
+              {{ macros.nav_loop(pages) }}
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+</div>
+</div>
+</div><!-- /.navbar -->

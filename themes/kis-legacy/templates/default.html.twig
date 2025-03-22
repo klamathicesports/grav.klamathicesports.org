@@ -1,0 +1,102 @@
+{% extends 'partials/base.html.twig' %}
+{% block content %}
+
+<section id="main" class="parallax-section parallax-background fixed parallax-bg-main" data-top="background-position: 50% 0%;" data-top-bottom="background-position: 50% 100%;">
+<div class="container">
+<div class="row">  
+
+  <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8">
+  <div class="page">
+    <h1 class="title"><!-- <?= $page_data->title ?> --></h1>
+    <!-- <?php if( isset($images) && !is_null($images) ) $this->load->view( 'page/images', array( 'images'=>$images ) ); ?> -->
+    <div class="page-content">
+        {{ page.content|raw }}
+    </div>
+  </div>
+  </div>
+
+  <div class="stuff hidden-print">
+  <!-- <?php if( isset($cpartner) && !is_null($cpartner) ) $this->load->view( 'cpartner/single', array( 'cpartner'=>$cpartner ) ); ?> -->
+  <div class="col-xs-12 col-sm-12 col-md-3 col-lg-4 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-0">
+
+
+<!--
+      <?php $now = time(); ?>
+      <?php /*$MS_three_months = 7889238000;*/ ?>
+
+      <?php foreach ($event_data as $article) { ?>
+        <?php if( $article->event_stop_time == null ) { ?>
+            <a class="article-anchor" href="<?= base_url('/article/'.$article->slug.(isset($ps)?("?ps=".$ps):"")) ?>"><div class="article-list-item">
+              <div class="lhs">
+                <i class="fa fa-calendar"></i>
+              </div>
+              <div class="rhs">
+                <div class="title"><?= $article->title ?></div>
+                <div class="other"><?= date("l F j", $article->event_start_time) ?> <?= ucfirst(strtolower($article->description)) ?></div>
+              </div>
+              <div style="clear: both"></div>
+            </div></a>
+          <?php } else if( $article->event_stop_time != null && $now < $article->event_stop_time ) { ?>
+            <a class="article-anchor" href="<?= base_url('/article/'.$article->slug.(isset($ps)?("?ps=".$ps):"")) ?>"><div class="article-list-item">
+              <div class="lhs">
+                <i class="fa fa-calendar"></i>
+              </div>
+              <div class="rhs">
+                <div class="title"><?= $article->title ?></div>
+                <div class="other"><?= date("F jS \a\\t g:ia", $article->event_start_time) ?></div>
+              </div>
+              <div style="clear: both"></div>
+            </div></a>
+        <?php } ?>
+    <?php } ?>
+
+    <?php foreach( $articles as $article ) { ?>
+      <a class="article-anchor" href="<?= base_url('/article/'.$article->slug.(isset($ps)?("?ps=".$ps):"")) ?>"><div class="article-list-item">
+        <div class="lhs">
+          <i class="fa fa-snowflake-o"></i>
+        </div>
+        <div class="rhs">
+          <div class="title"><?= $article->title ?></div>
+          <div class="other"><?= ucfirst(strtolower($article->description)) ?></div>
+        </div>
+        <div style="clear: both"></div>
+      </div></a>
+    <?php } ?>
+
+    <?php if( isset($attachments) && !is_null($attachments) ) $this->load->view( 'page/attachments', array( 'attachments'=>$attachments ) ); ?>
+-->
+
+    <div class="alert alert-info text-center">
+      <p><strong>Help us reach our goals!</strong><br/>Keep it frozen, fund the freeze.<br/><strong><span class="text-danger glyphicon glyphicon-heart" aria-hidden="true"></span>&nbsp;<a class="btn btn-primary" href="{{ url('/fundthefreeze') }}">Donate!</a>&nbsp;<span class="text-danger glyphicon glyphicon-heart" aria-hidden="true"></span></strong></p>
+    </div>
+
+  </div>
+  </div>
+
+<!--
+<?php if( isset($articles_featured) && isset($articles_featured[0]) ) { ?>
+  <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8">
+  <div class="page featured-article">
+
+    <?php if( ENVIRONMENT == 'production' ) { ?>
+      <?php if( !empty( $articles_featured[0]->filename ) ) { ?>
+          <img class="img-responsive img-center" src="<?= base_url('../img/'.preg_replace( '/(\.[^.]+)$/', '-hero$1', $articles_featured[0]->filename )) ?>"/>
+      <?php } ?>
+    <?php } else { ?>
+        <img class="img-responsive img-center" src="https://placeimg.com/1280/720/any"/>
+    <?php } ?>
+
+    <h1 class="title"><?= $articles_featured[0]->title ?><?= isset($articles_featured[0]->event_start_time) ? " <small>- ".date("l, F jS \a\\t g:ia", $articles_featured[0]->event_start_time)."</small>" : "" ?></h1>
+    <div class="page-content">
+      <?= $articles_featured[0]->content ?>
+    </div>
+  </div>
+  </div>
+<?php } ?>
+-->
+
+</div>
+</div>
+</section>
+
+{% endblock %}

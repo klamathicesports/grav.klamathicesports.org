@@ -1,0 +1,17 @@
+{% macro nav_loop(page) %}
+  {% import _self as macros %}
+  {% for p in page.children.visible %}
+    {% set active_page = (p.active or p.activeChild) ? 'active' : '' %}
+    {% set li_class = (p.children.visible.count > 0) ? 'dropdown' : '' %}
+    {% set a_class = (p.children.visible.count > 0) ? 'dropdown-toggle' : '' %}
+    {% set data_toggle = (p.children.visible.count > 0) ? 'dropdown' : '' %}
+    <li class="{{ li_class }}">
+      <a href="{{ p.url }}" class="{{ a_class }} {{ active_page }}" data-toggle="{{ data_toggle }}">{{ p.menu }}{% if p.children.visible.count > 0 %} <i class="nav-caret fa fa-caret-down"></i>{% endif %}</a>
+      {% if p.children.visible.count > 0 %}
+      <ul class="dropdown-menu" role="menu">
+        {{ macros.nav_loop(p) }}
+      </ul>
+      {% endif %}
+    </li>
+  {% endfor %}
+{% endmacro %}

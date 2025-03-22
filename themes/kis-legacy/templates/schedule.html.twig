@@ -1,0 +1,24 @@
+{% extends 'partials/base.html.twig' %}
+{% block content %}
+<section id="main" class="parallax-section parallax-background fixed parallax-bg-main" data-top="background-position: 50% 0%;" data-top-bottom="background-position: 50% 100%;">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<h1 class="title">Schedule</h1>
+				<iframe src="https://calendar.google.com/calendar/embed?height=800&wkst=1&ctz=America%2FLos_Angeles&showPrint=0&showTabs=0&showCalendars=0&showTitle=0&src=a2xhbWF0aGljZXNwb3J0cy5vcmdfZWg0c3RzamhhNHR0bDltb25iNGk0bzN0ZW9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%233399ff" style="margin: 0 auto; border-width:0" width="1170" height="1280" frameborder="0" scrolling="no"></iframe>
+			</div>
+		</div>
+		<!--
+		<div class="row">  
+		  <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8">
+			  <div class="page">
+			    <div class="page-content">
+			        {{ page.content|raw }}
+			    </div>
+			  </div>
+		  </div>
+		</div>
+		-->
+	</div>
+</section>
+{% endblock %}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="{{ (grav.language.getActive ?: grav.config.site.default_lang)|e }}">
+<head>
+{% block head %}
+  <meta charset="utf-8">
+  <title>{% if header.title %}{{ header.title|e }} | {% endif %}{{ site.title|e }}</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#fff">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {% include 'partials/metadata.html.twig' %}
+  <meta name="description" content="todo">
+  <meta name="keywords" content="ice, rink, outdoor, entertainment, fitness, family, community ice arena, arena, ice skating, hockey, curling, broomball, figure skating, birthday parties, special events, ice show, instruction, sport, winter sport, lessons, group lessons, private lessons">
+  <meta name="author" content="Klamath Ice Sports">
+
+  <meta property="og:type" content="place" />
+  <meta property="place:location:latitude"  content="42.273506" /> 
+  <meta property="place:location:longitude" content="-121.8850486" /> 
+  <meta property="og:url" content="todo" /> 
+  <meta property="og:title" content="{% if header.title %}{{ header.title|e }} | {% endif %}{{ site.title|e }}" /> 
+  <meta property="og:description" content="todo" />
+  <meta property="og:image" content="{{ url("theme://images/og-image.jpg")|e }}" />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ url('theme://images/apple-touch-icon.png') }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ url('theme://images/favicon-32x32.png') }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ url('theme://images/favicon-16x16.png') }}">
+  <link rel="manifest" href="{{ url('theme://manifest.json') }}">
+  <link rel="mask-icon" href="{{ url('theme://images/safari-pinned-tab.svg') }}" color="#5bbad5">
+{% endblock head %}
+
+{% block stylesheets %}
+  <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet" type="text/css">
+  <link href="{{ url('theme://css/bootstrap.klamathicesports.org.min.css') }}" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="{{ url('theme://css/style.css') }}" rel="stylesheet" type="text/css">
+  <link href="{{ url('theme://css/ekko-lightbox.min.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <style type="text/css">
+      .gradient { filter: none; }
+    </style>
+  <![endif]-->
+</head>
+
+<body>
+
+{% if config.system.environment == 'production' %}
+  {% include 'partials/analytics.html.twig' %}
+{% endif %}
+
+{% block header %}
+  {% block header_navigation %}
+    {% include 'partials/navigation.html.twig' %}
+  {% endblock %}
+{% endblock %}
+
+{% block body %}
+  {% block content %}{% endblock %}
+{% endblock %}
+
+
+{% block footer %}
+  {% include 'partials/footer.html.twig' %}
+{% endblock %}
+
+{% block bottom %}
+    {{ assets.js('bottom')|raw }}
+{% endblock %}
+
+</body>
+</html>
