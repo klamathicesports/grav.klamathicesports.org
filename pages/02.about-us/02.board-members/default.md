@@ -5,7 +5,7 @@ title: Board Members
 # West Packer
 | | |
 | --- | --- |
-| _President_ | [West.P@klamathicesports.org]("mailto:{{'west.p@klamathicesports.org'|safe_email}}") |
+| _President_ | West.P@klamathicesports.org |
 
 # Lynndsi Ray
 | | |
