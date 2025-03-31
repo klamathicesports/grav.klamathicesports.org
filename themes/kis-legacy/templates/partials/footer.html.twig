@@ -104,14 +104,11 @@
           </div>
         </div>
 
-<!--
         <div class="col-xs-12">
                 <div class="map-option">
-                  <span class="map-option-label"><strong>During the off-season, keep up your skating at these rinks!</strong></span>
+                  <span class="map-option-label"><strong>No ice? No problem! Keep up your ice skating at these rinks until the next ice season.</strong></span>
                 </div>
         </div>
-
-      -->
 
       </div></div><!-- map-control-panel -->
 
@@ -132,7 +129,7 @@
     <div class="container">
     <div class="row">
       <div class="col-xs-12 text-right">
-      <span id="copyright">Copyright &copy; 2024 Klamath Ice Sports, Inc. a non-profit 501(c)(3) organization</span>
+      <span id="copyright">Copyright &copy; {{ 'now' | date('Y') }} Klamath Ice Sports, Inc. a non-profit 501(c)(3) organization</span>
       </div>
     </div>
     </div>
@@ -145,7 +142,21 @@
 <script src="{{ url('theme://js/skrollr.min.js') }}"></script>
 <script src="{{ url('theme://js/device.js') }}"></script>
 <script src="{{ url('theme://js/ekko-lightbox.min.js') }}"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key={{ config.system.keyring.google_api }}&callback=initMap" async defer></script>
-<script src="{{ url('theme://js/script.js') }}"></script>
+
+<script>
+  (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+    key: "{{ config.system.keyring.google_api }}",
+    v: "weekly",
+    mapIds: "DEMO_MAP_ID",
+  });
+</script>
+
+<!--
+<script async src='https://maps.googleapis.com/maps/api/js?key={{ config.system.keyring.google_api }}&loading=async&callback=initMap&libraries=marker&map_ids="57c173defa26932b"'>
+</script>
+-->
+
+<script src="{{ url('theme://js/script.js') }}">
+</script>
 
 {% include 'partials/map_get_to_bcia.html.twig' %}
