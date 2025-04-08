@@ -6,6 +6,7 @@ languages/*
 !languages/.*
 plugins/*
 !plugins/.*
+!plugins/community-partners
 themes/*
 !themes/.*
 !themes/kis-legacy/

@@ -1,0 +1,24 @@
+{
+  "name": "Community Partners",
+  "type": "grav-plugin",
+  "description": "Advertisements for Community Partners",
+  "keywords": ["plugin"],
+  "homepage": "https://github.com/klamathicesports/grav.klamathicesports.org",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Klamath Ice Sports",
+      "email": "website@klamathicesports.org",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.1.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "Grav\\Plugin\\CommunityPartners\\": "classes/"
+    },
+    "classmap":  ["community-partners.php"]
+  }
+}
